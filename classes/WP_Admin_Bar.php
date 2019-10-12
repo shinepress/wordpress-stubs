@@ -1,0 +1,184 @@
+<?php
+
+
+/**
+ * Toolbar API: WP_Admin_Bar class
+ *
+ * @package WordPress
+ * @subpackage Toolbar
+ * @since 3.1.0
+ */
+/**
+ * Core class used to implement the Toolbar API.
+ *
+ * @since 3.1.0
+ */
+class WP_Admin_Bar
+{
+    private $nodes = array();
+    private $bound = \false;
+    public $user;
+    /**
+     * @param string $name
+     * @return string|array|void
+     */
+    public function __get($name)
+    {
+    }
+    /**
+     * @access public
+     */
+    public function initialize()
+    {
+    }
+    /**
+     * @param array $node
+     */
+    public function add_menu($node)
+    {
+    }
+    /**
+     * @param string $id
+     */
+    public function remove_menu($id)
+    {
+    }
+    /**
+     * Adds a node to the menu.
+     *
+     * @since 3.1.0
+     * @since 4.5.0 Added the ability to pass 'lang' and 'dir' meta data.
+     * @access public
+     *
+     * @param array $args {
+     *     Arguments for adding a node.
+     *
+     *     @type string $id     ID of the item.
+     *     @type string $title  Title of the node.
+     *     @type string $parent Optional. ID of the parent node.
+     *     @type string $href   Optional. Link for the item.
+     *     @type bool   $group  Optional. Whether or not the node is a group. Default false.
+     *     @type array  $meta   Meta data including the following keys: 'html', 'class', 'rel', 'lang', 'dir',
+     *                          'onclick', 'target', 'title', 'tabindex'. Default empty.
+     * }
+     */
+    public function add_node($args)
+    {
+    }
+    /**
+     * @param array $args
+     */
+    final protected function _set_node($args)
+    {
+    }
+    /**
+     * Gets a node.
+     *
+     * @param string $id
+     * @return object Node.
+     */
+    final public function get_node($id)
+    {
+    }
+    /**
+     * @param string $id
+     * @return object|void
+     */
+    final protected function _get_node($id)
+    {
+    }
+    /**
+     * @return array|void
+     */
+    final public function get_nodes()
+    {
+    }
+    /**
+     * @return array|void
+     */
+    final protected function _get_nodes()
+    {
+    }
+    /**
+     * Add a group to a menu node.
+     *
+     * @since 3.3.0
+     *
+     * @param array $args {
+     *     Array of arguments for adding a group.
+     *
+     *     @type string $id     ID of the item.
+     *     @type string $parent Optional. ID of the parent node. Default 'root'.
+     *     @type array  $meta   Meta data for the group including the following keys:
+     *                         'class', 'onclick', 'target', and 'title'.
+     * }
+     */
+    final public function add_group($args)
+    {
+    }
+    /**
+     * Remove a node.
+     *
+     * @param string $id The ID of the item.
+     */
+    public function remove_node($id)
+    {
+    }
+    /**
+     * @param string $id
+     */
+    final protected function _unset_node($id)
+    {
+    }
+    /**
+     * @access public
+     */
+    public function render()
+    {
+    }
+    /**
+     * @return object|void
+     */
+    final protected function _bind()
+    {
+    }
+    /**
+     *
+     * @global bool $is_IE
+     * @param object $root
+     */
+    final protected function _render($root)
+    {
+    }
+    /**
+     * @param object $node
+     */
+    final protected function _render_container($node)
+    {
+    }
+    /**
+     * @param object $node
+     */
+    final protected function _render_group($node)
+    {
+    }
+    /**
+     * @param object $node
+     */
+    final protected function _render_item($node)
+    {
+    }
+    /**
+     * @param string $id    Unused.
+     * @param object $node
+     */
+    public function recursive_render($id, $node)
+    {
+    }
+    /**
+     * @access public
+     */
+    public function add_menus()
+    {
+    }
+}
