@@ -1,0 +1,20 @@
+<?php
+
+
+/**
+ * Whether the current request is for a user admin screen.
+ *
+ * e.g. `/wp-admin/user/`
+ *
+ * Does not check if the user is an administrator; use current_user_can()
+ * for checking roles and capabilities.
+ *
+ * @since 3.1.0
+ *
+ * @global WP_Screen $current_screen
+ *
+ * @return bool True if inside WordPress user administration pages.
+ */
+function is_user_admin()
+{
+}
