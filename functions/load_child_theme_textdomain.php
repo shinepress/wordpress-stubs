@@ -1,0 +1,21 @@
+<?php
+
+
+/**
+ * Load the child themes translated strings.
+ *
+ * If the current locale exists as a .mo file in the child themes
+ * root directory, it will be included in the translated strings by the $domain.
+ *
+ * The .mo files must be named based on the locale exactly.
+ *
+ * @since 2.9.0
+ *
+ * @param string $domain Text domain. Unique identifier for retrieving translated strings.
+ * @param string $path   Optional. Path to the directory containing the .mo file.
+ *                       Default false.
+ * @return bool True when the theme textdomain is successfully loaded, false otherwise.
+ */
+function load_child_theme_textdomain($domain, $path = \false)
+{
+}

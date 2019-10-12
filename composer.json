@@ -1,0 +1,11 @@
+{
+	"name": "shinepress/wordpress-stubs",
+	"type": "library",
+	"license": "MIT",
+	"description": "WordPress function and class declaration stubs for static analysis split into multiple files for increased performance.",
+	"keywords": [
+		"wordpress",
+		"static analysis",
+		"phpstan"
+	]
+}
