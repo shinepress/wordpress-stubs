@@ -1,0 +1,19 @@
+<?php
+
+
+/**
+ * Examine a URL and try to determine the post ID it represents.
+ *
+ * Checks are supposedly from the hosted site blog.
+ *
+ * @since 1.0.0
+ *
+ * @global WP_Rewrite $wp_rewrite
+ * @global WP         $wp
+ *
+ * @param string $url Permalink to check.
+ * @return int Post ID, or 0 on failure.
+ */
+function url_to_postid($url)
+{
+}
