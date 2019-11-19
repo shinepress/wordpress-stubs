@@ -1,0 +1,13 @@
+<?php
+
+
+/**
+ * Display a the title for a given group of contributors.
+ *
+ * @since 5.3.0
+ *
+ * @param array $group_data The current contributor group.
+ */
+function wp_credits_section_title($group_data = array())
+{
+}
