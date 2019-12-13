@@ -1,0 +1,16 @@
+<?php
+
+
+/**
+ * Whether or not we have a large network.
+ *
+ * The default criteria for a large network is either more than 10,000 users or more than 10,000 sites.
+ * Plugins can alter this criteria using the {@see 'wp_is_large_network'} filter.
+ *
+ * @since 3.3.0
+ * @param string $using 'sites or 'users'. Default is 'sites'.
+ * @return bool True if the network meets the criteria for large. False otherwise.
+ */
+function wp_is_large_network($using = 'sites')
+{
+}
