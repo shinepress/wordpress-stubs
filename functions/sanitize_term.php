@@ -1,0 +1,23 @@
+<?php
+
+
+/**
+ * Sanitize Term all fields.
+ *
+ * Relies on sanitize_term_field() to sanitize the term. The difference is that
+ * this function will sanitize <strong>all</strong> fields. The context is based
+ * on sanitize_term_field().
+ *
+ * The $term is expected to be either an array or an object.
+ *
+ * @since 2.3.0
+ *
+ * @param array|object $term     The term to check.
+ * @param string       $taxonomy The taxonomy name to use.
+ * @param string       $context  Optional. Context in which to sanitize the term. Accepts 'edit', 'db',
+ *                               'display', 'attribute', or 'js'. Default 'display'.
+ * @return array|object Term with all fields sanitized.
+ */
+function sanitize_term($term, $taxonomy, $context = 'display')
+{
+}
