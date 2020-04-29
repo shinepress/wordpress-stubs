@@ -1,0 +1,29 @@
+<?php
+
+
+/**
+ * Create a file in the upload folder with given content.
+ *
+ * If there is an error, then the key 'error' will exist with the error message.
+ * If success, then the key 'file' will have the unique file path, the 'url' key
+ * will have the link to the new file. and the 'error' key will be set to false.
+ *
+ * This function will not move an uploaded file to the upload folder. It will
+ * create a new file with the content in $bits parameter. If you move the upload
+ * file, read the content of the uploaded file, and then you can give the
+ * filename and content to this function, which will add it to the upload
+ * folder.
+ *
+ * The permissions will be set on the new file automatically by this function.
+ *
+ * @since 2.0.0
+ *
+ * @param string       $name       Filename.
+ * @param null|string  $deprecated Never used. Set to null.
+ * @param string       $bits       File content
+ * @param string       $time       Optional. Time formatted in 'yyyy/mm'. Default null.
+ * @return array
+ */
+function wp_upload_bits($name, $deprecated, $bits, $time = \null)
+{
+}
