@@ -1,0 +1,15 @@
+<?php
+
+
+/**
+ * Register a selection of default headers to be displayed by the custom header admin UI.
+ *
+ * @since 3.0.0
+ *
+ * @global array $_wp_default_headers
+ *
+ * @param array $headers Array of headers keyed by a string id. The ids point to arrays containing 'url', 'thumbnail_url', and 'description' keys.
+ */
+function register_default_headers($headers)
+{
+}
