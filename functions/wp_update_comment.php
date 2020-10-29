@@ -1,0 +1,18 @@
+<?php
+
+
+/**
+ * Updates an existing comment in the database.
+ *
+ * Filters the comment and makes sure certain fields are valid before updating.
+ *
+ * @since 2.0.0
+ *
+ * @global wpdb $wpdb WordPress database abstraction object.
+ *
+ * @param array $commentarr Contains information on the comment.
+ * @return int Comment was updated if value is 1, or was not updated if value is 0.
+ */
+function wp_update_comment($commentarr)
+{
+}
