@@ -1,0 +1,16 @@
+<?php
+
+
+/**
+ * Creates autosave data for the specified post from $_POST data.
+ *
+ * @package WordPress
+ * @subpackage Post_Revisions
+ * @since 2.6.0
+ *
+ * @param mixed $post_data Associative array containing the post data or int post ID.
+ * @return mixed The autosave revision ID. WP_Error or 0 on error.
+ */
+function wp_create_post_autosave($post_data)
+{
+}
