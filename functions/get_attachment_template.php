@@ -1,0 +1,35 @@
+<?php
+
+
+/**
+ * Retrieve path of attachment template in current or parent template.
+ *
+ * The hierarchy for this template looks like:
+ *
+ * 1. {mime_type}-{sub_type}.php
+ * 2. {sub_type}.php
+ * 3. {mime_type}.php
+ * 4. attachment.php
+ *
+ * An example of this is:
+ *
+ * 1. image-jpeg.php
+ * 2. jpeg.php
+ * 3. image.php
+ * 4. attachment.php
+ *
+ * The template hierarchy is filterable via the {@see 'attachment_template_hierarchy'} hook.
+ * The template path is filterable via the {@see 'attachment_template'} hook.
+ *
+ * @since 2.0.0
+ * @since 4.3.0 The order of the mime type logic was reversed so the hierarchy is more logical.
+ *
+ * @see get_query_template()
+ *
+ * @global array $posts
+ *
+ * @return string Full path to attachment template file.
+ */
+function get_attachment_template()
+{
+}
