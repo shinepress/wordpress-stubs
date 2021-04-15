@@ -1,0 +1,26 @@
+<?php
+
+
+/**
+ * Callback for wp_kses_split for fixing malformed HTML tags.
+ *
+ * This function does a lot of work. It rejects some very malformed things like
+ * <:::>. It returns an empty string, if the element isn't allowed (look ma, no
+ * strip_tags()!). Otherwise it splits the tag into an element and an attribute
+ * list.
+ *
+ * After the tag is split into an element and an attribute list, it is run
+ * through another filter which will remove illegal attributes and once that is
+ * completed, will be returned.
+ *
+ * @access private
+ * @since 1.0.0
+ *
+ * @param string $string            Content to filter
+ * @param array  $allowed_html      Allowed HTML elements
+ * @param array  $allowed_protocols Allowed protocols to keep
+ * @return string Fixed HTML element
+ */
+function wp_kses_split2($string, $allowed_html, $allowed_protocols)
+{
+}
