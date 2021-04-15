@@ -1,0 +1,15 @@
+<?php
+
+
+/**
+ * Finds the schema for a property using the patternProperties keyword.
+ *
+ * @since 5.6.0
+ *
+ * @param string $property The property name to check.
+ * @param array  $args     The schema array to use.
+ * @return array|null      The schema of matching pattern property, or null if no patterns match.
+ */
+function rest_find_matching_pattern_property_schema($property, $args)
+{
+}
