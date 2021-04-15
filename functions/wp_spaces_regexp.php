@@ -1,0 +1,19 @@
+<?php
+
+
+/**
+ * Returns the regexp for common whitespace characters.
+ *
+ * By default, spaces include new lines, tabs, nbsp entities, and the UTF-8 nbsp.
+ * This is designed to replace the PCRE \s sequence.  In ticket #22692, that
+ * sequence was found to be unreliable due to random inclusion of the A0 byte.
+ *
+ * @since 4.0.0
+ *
+ * @staticvar string $spaces
+ *
+ * @return string The spaces regexp.
+ */
+function wp_spaces_regexp()
+{
+}
