@@ -1,0 +1,23 @@
+<?php
+
+
+/**
+ * Attempt an early load of translations.
+ *
+ * Used for errors encountered during the initial loading process, before
+ * the locale has been properly detected and loaded.
+ *
+ * Designed for unusual load sequences (like setup-config.php) or for when
+ * the script will then terminate with an error, otherwise there is a risk
+ * that a file can be double-included.
+ *
+ * @since 3.4.0
+ * @access private
+ *
+ * @global WP_Locale $wp_locale The WordPress date and time locale object.
+ *
+ * @staticvar bool $loaded
+ */
+function wp_load_translations_early()
+{
+}
