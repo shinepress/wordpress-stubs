@@ -1,0 +1,14 @@
+<?php
+
+
+/**
+ * Handles uploading a video file.
+ *
+ * @deprecated 3.3.0 Use wp_media_upload_handler()
+ * @see wp_media_upload_handler()
+ *
+ * @return null|string
+ */
+function media_upload_video()
+{
+}
