@@ -1,0 +1,21 @@
+<?php
+
+
+/**
+ * Perform sanity checks on data that shall be encoded to JSON.
+ *
+ * @ignore
+ * @since 4.1.0
+ * @access private
+ *
+ * @see wp_json_encode()
+ *
+ * @throws Exception If depth limit is reached.
+ *
+ * @param mixed $data  Variable (usually an array or object) to encode as JSON.
+ * @param int   $depth Maximum depth to walk through $data. Must be greater than 0.
+ * @return mixed The sanitized data that shall be encoded to JSON.
+ */
+function _wp_json_sanity_check($data, $depth)
+{
+}
