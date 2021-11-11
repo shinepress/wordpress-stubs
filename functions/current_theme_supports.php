@@ -1,0 +1,24 @@
+<?php
+
+
+/**
+ * Checks a theme's support for a given feature.
+ *
+ * Example usage:
+ *
+ *     current_theme_supports( 'custom-logo' );
+ *     current_theme_supports( 'html5', 'comment-form' );
+ *
+ * @since 2.9.0
+ * @since 5.3.0 Formalized the existing and already documented `...$args` parameter
+ *              by adding it to the function signature.
+ *
+ * @global array $_wp_theme_features
+ *
+ * @param string $feature The feature being checked.
+ * @param mixed  ...$args Optional extra arguments to be checked against certain features.
+ * @return bool True if the current theme supports the feature, false otherwise.
+ */
+function current_theme_supports($feature, ...$args)
+{
+}
