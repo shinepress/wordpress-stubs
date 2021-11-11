@@ -1,0 +1,16 @@
+<?php
+
+
+/**
+ * Get a sample permalink based off of the post name.
+ *
+ * @since 2.5.0
+ *
+ * @param int    $id    Post ID or post object.
+ * @param string $title Optional. Title to override the post's current title when generating the post name. Default null.
+ * @param string $name  Optional. Name to override the post name. Default null.
+ * @return array Array containing the sample permalink with placeholder for the post name, and the post name.
+ */
+function get_sample_permalink($id, $title = \null, $name = \null)
+{
+}

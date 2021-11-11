@@ -1,0 +1,15 @@
+<?php
+
+
+/**
+ * Get the query variables for the current attachments request.
+ *
+ * @since 4.2.0
+ *
+ * @param array|false $q Optional. Array of query variables to use to build the query or false
+ *                       to use $_GET superglobal. Default false.
+ * @return array The parsed query vars.
+ */
+function wp_edit_attachments_query_vars($q = \false)
+{
+}
