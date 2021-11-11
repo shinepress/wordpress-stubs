@@ -1,0 +1,15 @@
+<?php
+
+
+/**
+ * Restores the translations according to the original locale.
+ *
+ * @since 4.7.0
+ *
+ * @global WP_Locale_Switcher $wp_locale_switcher WordPress locale switcher object.
+ *
+ * @return string|false Locale on success, false on error.
+ */
+function restore_current_locale()
+{
+}
