@@ -1,0 +1,22 @@
+<?php
+
+
+/**
+ * Get the timestamp of the last time any post was modified.
+ *
+ * The server timezone is the default and is the difference between GMT and
+ * server time. The 'blog' value is just when the last post was modified. The
+ * 'gmt' is when the last post was modified in GMT time.
+ *
+ * @since 1.2.0
+ * @since 4.4.0 The `$post_type` argument was added.
+ *
+ * @param string $timezone  Optional. The timezone for the timestamp. See get_lastpostdate()
+ *                          for information on accepted values.
+ *                          Default 'server'.
+ * @param string $post_type Optional. The post type to check. Default 'any'.
+ * @return string The timestamp.
+ */
+function get_lastpostmodified($timezone = 'server', $post_type = 'any')
+{
+}
