@@ -1,0 +1,17 @@
+<?php
+
+
+/**
+ * Setup the new site signup
+ *
+ * @since MU
+ *
+ * @param string          $user_name  The username.
+ * @param string          $user_email The user's email address.
+ * @param string          $blogname   The site name.
+ * @param string          $blog_title The site title.
+ * @param WP_Error|string $errors     A WP_Error object containing existing errors. Defaults to empty string.
+ */
+function signup_blog($user_name = '', $user_email = '', $blogname = '', $blog_title = '', $errors = '')
+{
+}
