@@ -1,0 +1,17 @@
+<?php
+
+
+/**
+ * Updates a site in the database.
+ *
+ * @since 5.1.0
+ *
+ * @global wpdb $wpdb WordPress database abstraction object.
+ *
+ * @param int   $site_id ID of the site that should be updated.
+ * @param array $data    Site data to update. See {@see wp_insert_site()} for the list of supported keys.
+ * @return int|WP_Error The updated site's ID on success, or error object on failure.
+ */
+function wp_update_site($site_id, array $data)
+{
+}
