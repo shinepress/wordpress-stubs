@@ -1,0 +1,43 @@
+<?php
+
+
+/**
+ * Calls the callback functions that have been added to a filter hook.
+ *
+ * This function invokes all functions attached to filter hook `$hook_name`.
+ * It is possible to create new filter hooks by simply calling this function,
+ * specifying the name of the new hook using the `$hook_name` parameter.
+ *
+ * The function also allows for multiple additional arguments to be passed to hooks.
+ *
+ * Example usage:
+ *
+ *     // The filter callback function.
+ *     function example_callback( $string, $arg1, $arg2 ) {
+ *         // (maybe) modify $string.
+ *         return $string;
+ *     }
+ *     add_filter( 'example_filter', 'example_callback', 10, 3 );
+ *
+ *     /*
+ *      * Apply the filters by calling the 'example_callback()' function
+ *      * that's hooked onto `example_filter` above.
+ *      *
+ *      * - 'example_filter' is the filter hook.
+ *      * - 'filter me' is the value being filtered.
+ *      * - $arg1 and $arg2 are the additional arguments passed to the callback.
+ *     $value = apply_filters( 'example_filter', 'filter me', $arg1, $arg2 );
+ *
+ * @since 0.71
+ *
+ * @global WP_Hook[] $wp_filter         Stores all of the filters and actions.
+ * @global string[]  $wp_current_filter Stores the list of current filters with the current one last.
+ *
+ * @param string $hook_name The name of the filter hook.
+ * @param mixed  $value     The value to filter.
+ * @param mixed  ...$args   Additional parameters to pass to the callback functions.
+ * @return mixed The filtered value after all hooked functions are applied to it.
+ */
+function apply_filters($hook_name, $value)
+{
+}
