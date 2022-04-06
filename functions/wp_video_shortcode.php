@@ -1,0 +1,44 @@
+<?php
+
+
+/**
+ * Builds the Video shortcode output.
+ *
+ * This implements the functionality of the Video Shortcode for displaying
+ * WordPress mp4s in a post.
+ *
+ * @since 3.6.0
+ *
+ * @global int $content_width
+ * @staticvar int $instance
+ *
+ * @param array  $attr {
+ *     Attributes of the shortcode.
+ *
+ *     @type string $src      URL to the source of the video file. Default empty.
+ *     @type int    $height   Height of the video embed in pixels. Default 360.
+ *     @type int    $width    Width of the video embed in pixels. Default $content_width or 640.
+ *     @type string $poster   The 'poster' attribute for the `<video>` element. Default empty.
+ *     @type string $loop     The 'loop' attribute for the `<video>` element. Default empty.
+ *     @type string $autoplay The 'autoplay' attribute for the `<video>` element. Default empty.
+ *     @type string $preload  The 'preload' attribute for the `<video>` element.
+ *                            Default 'metadata'.
+ *     @type string $class    The 'class' attribute for the `<video>` element.
+ *                            Default 'wp-video-shortcode'.
+ * }
+ * @param string $content Shortcode content.
+ * @return string|void HTML content to display video.
+ * @phpstan-param array{
+ *   src?: string,
+ *   height?: int,
+ *   width?: int,
+ *   poster?: string,
+ *   loop?: string,
+ *   autoplay?: string,
+ *   preload?: string,
+ *   class?: string,
+ * } $attr
+ */
+function wp_video_shortcode($attr, $content = '')
+{
+}
