@@ -1,0 +1,69 @@
+<?php
+
+
+/**
+ * Upgrader API: Plugin_Installer_Skin class
+ *
+ * @package WordPress
+ * @subpackage Upgrader
+ * @since 4.6.0
+ */
+/**
+ * Plugin Installer Skin for WordPress Plugin Installer.
+ *
+ * @since 2.8.0
+ * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader-skins.php.
+ *
+ * @see WP_Upgrader_Skin
+ */
+class Plugin_Installer_Skin extends \WP_Upgrader_Skin
+{
+    public $api;
+    public $type;
+    public $url;
+    public $overwrite;
+    private $is_downgrading = \false;
+    /**
+     * @param array $args
+     */
+    public function __construct($args = array())
+    {
+    }
+    /**
+     * Action to perform before installing a plugin.
+     *
+     * @since 2.8.0
+     */
+    public function before()
+    {
+    }
+    /**
+     * Hides the `process_failed` error when updating a plugin by uploading a zip file.
+     *
+     * @since 5.5.0
+     *
+     * @param WP_Error $wp_error WP_Error.
+     * @return bool
+     */
+    public function hide_process_failed($wp_error)
+    {
+    }
+    /**
+     * Action to perform following a plugin install.
+     *
+     * @since 2.8.0
+     */
+    public function after()
+    {
+    }
+    /**
+     * Check if the plugin can be overwritten and output the HTML for overwriting a plugin on upload.
+     *
+     * @since 5.5.0
+     *
+     * @return bool Whether the plugin can be overwritten and HTML was outputted.
+     */
+    private function do_overwrite()
+    {
+    }
+}
