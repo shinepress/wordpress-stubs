@@ -1,0 +1,93 @@
+<?php
+
+
+/**
+ * Upgrader API: WP_Ajax_Upgrader_Skin class
+ *
+ * @package WordPress
+ * @subpackage Upgrader
+ * @since 4.6.0
+ */
+/**
+ * Upgrader Skin for Ajax WordPress upgrades.
+ *
+ * This skin is designed to be used for Ajax updates.
+ *
+ * @since 4.6.0
+ *
+ * @see Automatic_Upgrader_Skin
+ */
+class WP_Ajax_Upgrader_Skin extends \Automatic_Upgrader_Skin
+{
+    /**
+     * Holds the WP_Error object.
+     *
+     * @since 4.6.0
+     *
+     * @var null|WP_Error
+     */
+    protected $errors = \null;
+    /**
+     * Constructor.
+     *
+     * Sets up the WordPress Ajax upgrader skin.
+     *
+     * @since 4.6.0
+     *
+     * @see WP_Upgrader_Skin::__construct()
+     *
+     * @param array $args Optional. The WordPress Ajax upgrader skin arguments to
+     *                    override default options. See WP_Upgrader_Skin::__construct().
+     *                    Default empty array.
+     */
+    public function __construct($args = array())
+    {
+    }
+    /**
+     * Retrieves the list of errors.
+     *
+     * @since 4.6.0
+     *
+     * @return WP_Error Errors during an upgrade.
+     */
+    public function get_errors()
+    {
+    }
+    /**
+     * Retrieves a string for error messages.
+     *
+     * @since 4.6.0
+     *
+     * @return string Error messages during an upgrade.
+     */
+    public function get_error_messages()
+    {
+    }
+    /**
+     * Stores an error message about the upgrade.
+     *
+     * @since 4.6.0
+     * @since 5.3.0 Formalized the existing `...$args` parameter by adding it
+     *              to the function signature.
+     *
+     * @param string|WP_Error $errors  Errors.
+     * @param mixed           ...$args Optional text replacements.
+     */
+    public function error($errors, ...$args)
+    {
+    }
+    /**
+     * Stores a message about the upgrade.
+     *
+     * @since 4.6.0
+     * @since 5.3.0 Formalized the existing `...$args` parameter by adding it
+     *              to the function signature.
+     * @since 5.9.0 Renamed `$data` to `$feedback` for PHP 8 named parameter support.
+     *
+     * @param string|array|WP_Error $feedback Message data.
+     * @param mixed                 ...$args  Optional text replacements.
+     */
+    public function feedback($feedback, ...$args)
+    {
+    }
+}
