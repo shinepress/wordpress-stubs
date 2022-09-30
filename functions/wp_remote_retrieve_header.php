@@ -1,0 +1,15 @@
+<?php
+
+
+/**
+ * Retrieve a single header by name from the raw response.
+ *
+ * @since 2.7.0
+ *
+ * @param array|WP_Error $response HTTP response.
+ * @param string         $header   Header name to retrieve value from.
+ * @return string The header value. Empty string on if incorrect parameter given, or if the header doesn't exist.
+ */
+function wp_remote_retrieve_header($response, $header)
+{
+}
