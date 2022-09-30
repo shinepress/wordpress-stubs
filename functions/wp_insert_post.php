@@ -1,0 +1,97 @@
+<?php
+
+
+/**
+ * Insert or update a post.
+ *
+ * If the $postarr parameter has 'ID' set to a value, then post will be updated.
+ *
+ * You can set the post date manually, by setting the values for 'post_date'
+ * and 'post_date_gmt' keys. You can close the comments or open the comments by
+ * setting the value for 'comment_status' key.
+ *
+ * @since 1.0.0
+ * @since 2.6.0 Added the `$wp_error` parameter to allow a WP_Error to be returned on failure.
+ * @since 4.2.0 Support was added for encoding emoji in the post title, content, and excerpt.
+ * @since 4.4.0 A 'meta_input' array can now be passed to `$postarr` to add post meta data.
+ * @since 5.6.0 Added the `$fire_after_hooks` parameter.
+ *
+ * @see sanitize_post()
+ * @global wpdb $wpdb WordPress database abstraction object.
+ *
+ * @param array $postarr {
+ *     An array of elements that make up a post to update or insert.
+ *
+ *     @type int    $ID                    The post ID. If equal to something other than 0,
+ *                                         the post with that ID will be updated. Default 0.
+ *     @type int    $post_author           The ID of the user who added the post. Default is
+ *                                         the current user ID.
+ *     @type string $post_date             The date of the post. Default is the current time.
+ *     @type string $post_date_gmt         The date of the post in the GMT timezone. Default is
+ *                                         the value of `$post_date`.
+ *     @type mixed  $post_content          The post content. Default empty.
+ *     @type string $post_content_filtered The filtered post content. Default empty.
+ *     @type string $post_title            The post title. Default empty.
+ *     @type string $post_excerpt          The post excerpt. Default empty.
+ *     @type string $post_status           The post status. Default 'draft'.
+ *     @type string $post_type             The post type. Default 'post'.
+ *     @type string $comment_status        Whether the post can accept comments. Accepts 'open' or 'closed'.
+ *                                         Default is the value of 'default_comment_status' option.
+ *     @type string $ping_status           Whether the post can accept pings. Accepts 'open' or 'closed'.
+ *                                         Default is the value of 'default_ping_status' option.
+ *     @type string $post_password         The password to access the post. Default empty.
+ *     @type string $post_name             The post name. Default is the sanitized post title
+ *                                         when creating a new post.
+ *     @type string $to_ping               Space or carriage return-separated list of URLs to ping.
+ *                                         Default empty.
+ *     @type string $pinged                Space or carriage return-separated list of URLs that have
+ *                                         been pinged. Default empty.
+ *     @type string $post_modified         The date when the post was last modified. Default is
+ *                                         the current time.
+ *     @type string $post_modified_gmt     The date when the post was last modified in the GMT
+ *                                         timezone. Default is the current time.
+ *     @type int    $post_parent           Set this for the post it belongs to, if any. Default 0.
+ *     @type int    $menu_order            The order the post should be displayed in. Default 0.
+ *     @type string $post_mime_type        The mime type of the post. Default empty.
+ *     @type string $guid                  Global Unique ID for referencing the post. Default empty.
+ *     @type int[]  $post_category         Array of category IDs.
+ *                                         Defaults to value of the 'default_category' option.
+ *     @type array  $tags_input            Array of tag names, slugs, or IDs. Default empty.
+ *     @type array  $tax_input             Array of taxonomy terms keyed by their taxonomy name. Default empty.
+ *     @type array  $meta_input            Array of post meta values keyed by their post meta key. Default empty.
+ * }
+ * @param bool  $wp_error         Optional. Whether to return a WP_Error on failure. Default false.
+ * @param bool  $fire_after_hooks Optional. Whether to fire the after insert hooks. Default true.
+ * @return int|WP_Error The post ID on success. The value 0 or WP_Error on failure.
+ * @phpstan-param array{
+ *   ID?: int,
+ *   post_author?: int,
+ *   post_date?: string,
+ *   post_date_gmt?: string,
+ *   post_content?: mixed,
+ *   post_content_filtered?: string,
+ *   post_title?: string,
+ *   post_excerpt?: string,
+ *   post_status?: string,
+ *   post_type?: string,
+ *   comment_status?: string,
+ *   ping_status?: string,
+ *   post_password?: string,
+ *   post_name?: string,
+ *   to_ping?: string,
+ *   pinged?: string,
+ *   post_modified?: string,
+ *   post_modified_gmt?: string,
+ *   post_parent?: int,
+ *   menu_order?: int,
+ *   post_mime_type?: string,
+ *   guid?: string,
+ *   post_category?: int[],
+ *   tags_input?: array,
+ *   tax_input?: array,
+ *   meta_input?: array,
+ * } $postarr
+ */
+function wp_insert_post($postarr, $wp_error = \false, $fire_after_hooks = \true)
+{
+}
