@@ -1,0 +1,15 @@
+<?php
+
+
+/**
+ * Returns the ID of the post's parent.
+ *
+ * @since 3.1.0
+ *
+ * @param int|WP_Post $post Post ID or post object. Defaults to global $post.
+ * @return int|false Post parent ID (which can be 0 if there is no parent),
+ *                   or false if the post does not exist.
+ */
+function wp_get_post_parent_id($post)
+{
+}
