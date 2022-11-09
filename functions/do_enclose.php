@@ -1,0 +1,23 @@
+<?php
+
+
+/**
+ * Check content for video and audio links to add as enclosures.
+ *
+ * Will not add enclosures that have already been added and will
+ * remove enclosures that are no longer in the post. This is called as
+ * pingbacks and trackbacks.
+ *
+ * @since 1.5.0
+ * @since 5.3.0 The `$content` parameter was made optional, and the `$post` parameter was
+ *              updated to accept a post ID or a WP_Post object.
+ *
+ * @global wpdb $wpdb WordPress database abstraction object.
+ *
+ * @param string         $content Post content. If `null`, the `post_content` field from `$post` is used.
+ * @param int|WP_Post    $post    Post ID or post object.
+ * @return null|bool Returns false if post is not found.
+ */
+function do_enclose($content = \null, $post)
+{
+}
