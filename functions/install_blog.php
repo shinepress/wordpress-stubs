@@ -1,0 +1,22 @@
+<?php
+
+
+/**
+ * Install an empty blog.
+ *
+ * Creates the new blog tables and options. If calling this function
+ * directly, be sure to use switch_to_blog() first, so that $wpdb
+ * points to the new blog.
+ *
+ * @since MU (3.0.0)
+ * @deprecated 5.1.0
+ *
+ * @global wpdb     $wpdb     WordPress database abstraction object.
+ * @global WP_Roles $wp_roles WordPress role management object.
+ *
+ * @param int    $blog_id    The value returned by wp_insert_site().
+ * @param string $blog_title The title of the new site.
+ */
+function install_blog($blog_id, $blog_title = '')
+{
+}
