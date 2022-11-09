@@ -1,0 +1,22 @@
+<?php
+
+
+/**
+ * Checks if any filter has been registered for a hook.
+ *
+ * When using the `$function_to_check` argument, this function may return a non-boolean value
+ * that evaluates to false (e.g. 0), so use the `===` operator for testing the return value.
+ *
+ * @since 2.5.0
+ *
+ * @global WP_Hook[] $wp_filter Stores all of the filters and actions.
+ *
+ * @param string         $tag               The name of the filter hook.
+ * @param callable|false $function_to_check Optional. The callback to check for. Default false.
+ * @return bool|int If `$function_to_check` is omitted, returns boolean for whether the hook has
+ *                  anything registered. When checking a specific function, the priority of that
+ *                  hook is returned, or false if the function is not attached.
+ */
+function has_filter($tag, $function_to_check = \false)
+{
+}
