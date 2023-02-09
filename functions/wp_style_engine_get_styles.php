@@ -1,0 +1,57 @@
+<?php
+
+
+/**
+ * Style engine: Public functions
+ *
+ * This file contains a variety of public functions developers can use to interact with
+ * the Style Engine API.
+ *
+ * @package WordPress
+ * @subpackage StyleEngine
+ * @since 6.1.0
+ */
+/**
+ * Global public interface method to generate styles from a single style object, e.g.,
+ * the value of a block's attributes.style object or the top level styles in theme.json.
+ * See: https://developer.wordpress.org/block-editor/reference-guides/theme-json-reference/theme-json-living/#styles and
+ * https://developer.wordpress.org/block-editor/reference-guides/block-api/block-supports/
+ *
+ * Example usage:
+ *
+ * $styles = wp_style_engine_get_styles( array( 'color' => array( 'text' => '#cccccc' ) ) );
+ * // Returns `array( 'css' => 'color: #cccccc', 'declarations' => array( 'color' => '#cccccc' ), 'classnames' => 'has-color' )`.
+ *
+ * @access public
+ * @since 6.1.0
+ *
+ * @param array $block_styles The style object.
+ * @param array $options {
+ *     Optional. An array of options. Default empty array.
+ *
+ *     @type string|null $context                    An identifier describing the origin of the style object, e.g., 'block-supports' or 'global-styles'. Default is `null`.
+ *                                                   When set, the style engine will attempt to store the CSS rules, where a selector is also passed.
+ *     @type bool        $convert_vars_to_classnames Whether to skip converting incoming CSS var patterns, e.g., `var:preset|<PRESET_TYPE>|<PRESET_SLUG>`, to var( --wp--preset--* ) values. Default `false`.
+ *     @type string      $selector                   Optional. When a selector is passed, the value of `$css` in the return value will comprise a full CSS rule `$selector { ...$css_declarations }`,
+ *                                                   otherwise, the value will be a concatenated string of CSS declarations.
+ * }
+ *
+ * @return array {
+ *     @type string   $css          A CSS ruleset or declarations block formatted to be placed in an HTML `style` attribute or tag.
+ *     @type string[] $declarations An associative array of CSS definitions, e.g., array( "$property" => "$value", "$property" => "$value" ).
+ *     @type string   $classnames   Classnames separated by a space.
+ * }
+ * @phpstan-param array{
+ *   context?: string|null,
+ *   convert_vars_to_classnames?: bool,
+ *   selector?: string,
+ * } $options
+ * @phpstan-return array{
+ *   css: string,
+ *   declarations: string[],
+ *   classnames: string,
+ * }
+ */
+function wp_style_engine_get_styles($block_styles, $options = array())
+{
+}
