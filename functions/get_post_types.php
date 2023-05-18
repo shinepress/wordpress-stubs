@@ -1,0 +1,25 @@
+<?php
+
+
+/**
+ * Get a list of all registered post type objects.
+ *
+ * @since 2.9.0
+ *
+ * @global array $wp_post_types List of post types.
+ *
+ * @see register_post_type() for accepted arguments.
+ *
+ * @param array|string $args     Optional. An array of key => value arguments to match against
+ *                               the post type objects. Default empty array.
+ * @param string       $output   Optional. The type of output to return. Accepts post type 'names'
+ *                               or 'objects'. Default 'names'.
+ * @param string       $operator Optional. The logical operation to perform. 'or' means only one
+ *                               element from the array needs to match; 'and' means all elements
+ *                               must match; 'not' means no elements may match. Default 'and'.
+ * @return string[]|WP_Post_Type[] An array of post type names or objects.
+ * @phpstan-return ($output is 'names' ? array<int, string> : array<int, \WP_Post_Type>)
+ */
+function get_post_types($args = array(), $output = 'names', $operator = 'and')
+{
+}
