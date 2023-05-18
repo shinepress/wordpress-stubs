@@ -1,0 +1,15 @@
+<?php
+
+
+/**
+ * Renders the `core/navigation-submenu` block.
+ *
+ * @param array  $attributes The block attributes.
+ * @param string $content The saved content.
+ * @param object $block The parsed block.
+ *
+ * @return string Returns the post content with the legacy widget added.
+ */
+function render_block_core_navigation_submenu($attributes, $content, $block)
+{
+}
