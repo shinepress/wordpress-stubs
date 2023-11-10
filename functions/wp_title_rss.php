@@ -1,0 +1,14 @@
+<?php
+
+
+/**
+ * Displays the blog title for display of the feed title.
+ *
+ * @since 2.2.0
+ * @since 4.4.0 The optional `$sep` parameter was deprecated and renamed to `$deprecated`.
+ *
+ * @param string $deprecated Unused.
+ */
+function wp_title_rss($deprecated = '&#8211;')
+{
+}
