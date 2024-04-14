@@ -1,0 +1,58 @@
+<?php
+
+
+/**
+ * Retrieve the list of categories for a post.
+ *
+ * Compatibility layer for themes and plugins. Also an easy layer of abstraction
+ * away from the complexity of the taxonomy layer.
+ *
+ * @since 2.1.0
+ *
+ * @see wp_get_object_terms()
+ *
+ * @param int   $post_id Optional. The Post ID. Does not default to the ID of the
+ *                       global $post. Default 0.
+ * @param array $args    Optional. Category query parameters. Default empty array.
+ *                       See WP_Term_Query::__construct() for supported arguments.
+ * @return array|WP_Error List of categories. If the `$fields` argument passed via `$args` is 'all' or
+ *                        'all_with_object_id', an array of WP_Term objects will be returned. If `$fields`
+ *                        is 'ids', an array of category ids. If `$fields` is 'names', an array of category names.
+ *                        WP_Error object if 'category' taxonomy doesn't exist.
+ * @phpstan-param array{
+ *   taxonomy?: string|array,
+ *   object_ids?: int|array,
+ *   orderby?: string,
+ *   order?: string,
+ *   hide_empty?: bool|int,
+ *   include?: array|string,
+ *   exclude?: array|string,
+ *   exclude_tree?: array|string,
+ *   number?: int|string,
+ *   offset?: int,
+ *   fields?: string,
+ *   count?: bool,
+ *   name?: string|array,
+ *   slug?: string|array,
+ *   term_taxonomy_id?: int|array,
+ *   hierarchical?: bool,
+ *   search?: string,
+ *   name__like?: string,
+ *   description__like?: string,
+ *   pad_counts?: bool,
+ *   get?: string,
+ *   child_of?: int,
+ *   parent?: int|string,
+ *   childless?: bool,
+ *   cache_domain?: string,
+ *   update_term_meta_cache?: bool,
+ *   meta_query?: array,
+ *   meta_key?: string,
+ *   meta_value?: string,
+ *   meta_type?: string,
+ *   meta_compare?: string,
+ * } $args See WP_Term_Query::__construct()
+ */
+function wp_get_post_categories($post_id = 0, $args = array())
+{
+}
