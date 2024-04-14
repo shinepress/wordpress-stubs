@@ -1,0 +1,17 @@
+<?php
+
+
+/**
+ * Builds an array of inline styles for the search block.
+ *
+ * The result will contain one entry for shared styles such as those for the
+ * inner input or button and a second for the inner wrapper should the block
+ * be positioning the button "inside".
+ *
+ * @param  array $attributes The block attributes.
+ *
+ * @return array Style HTML attribute.
+ */
+function styles_for_block_core_search($attributes)
+{
+}
