@@ -1,0 +1,24 @@
+<?php
+
+
+/**
+ * Removes a callback function from an action hook.
+ *
+ * This can be used to remove default functions attached to a specific action
+ * hook and possibly replace them with a substitute.
+ *
+ * To remove a hook, the `$callback` and `$priority` arguments must match
+ * when the hook was added. This goes for both filters and actions. No warning
+ * will be given on removal failure.
+ *
+ * @since 1.2.0
+ *
+ * @param string   $hook_name The action hook to which the function to be removed is hooked.
+ * @param callable $callback  The name of the function which should be removed.
+ * @param int      $priority  Optional. The exact priority used when adding the original
+ *                            action callback. Default 10.
+ * @return bool Whether the function is removed.
+ */
+function remove_action($hook_name, $callback, $priority = 10)
+{
+}
