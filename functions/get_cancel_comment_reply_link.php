@@ -1,0 +1,15 @@
+<?php
+
+
+/**
+ * Retrieves HTML content for cancel comment reply link.
+ *
+ * @since 2.7.0
+ *
+ * @param string $text Optional. Text to display for cancel reply link. If empty,
+ *                     defaults to 'Click here to cancel reply'. Default empty.
+ * @return string
+ */
+function get_cancel_comment_reply_link($text = '')
+{
+}
