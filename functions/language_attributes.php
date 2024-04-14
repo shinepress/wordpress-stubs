@@ -1,0 +1,18 @@
+<?php
+
+
+/**
+ * Displays the language attributes for the html tag.
+ *
+ * Builds up a set of html attributes containing the text direction and language
+ * information for the page.
+ *
+ * @since 2.1.0
+ * @since 4.3.0 Converted into a wrapper for get_language_attributes().
+ *
+ * @param string $doctype Optional. The type of html document. Accepts 'xhtml' or 'html'. Default 'html'.
+ * @phpstan-param 'xhtml'|'html' $doctype
+ */
+function language_attributes($doctype = 'html')
+{
+}
