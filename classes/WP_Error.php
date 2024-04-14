@@ -1,0 +1,162 @@
+<?php
+
+
+/**
+ * WordPress Error API.
+ *
+ * Contains the WP_Error class and the is_wp_error() function.
+ *
+ * @package WordPress
+ */
+/**
+ * WordPress Error class.
+ *
+ * Container for checking for WordPress errors and error messages. Return
+ * WP_Error and use is_wp_error() to check if this class is returned. Many
+ * core WordPress functions pass this class in the event of an error and
+ * if not handled properly will result in code errors.
+ *
+ * @since 2.1.0
+ */
+class WP_Error
+{
+    /**
+     * Stores the list of errors.
+     *
+     * @since 2.1.0
+     * @var array
+     */
+    public $errors = array();
+    /**
+     * Stores the list of data for error codes.
+     *
+     * @since 2.1.0
+     * @var array
+     */
+    public $error_data = array();
+    /**
+     * Initialize the error.
+     *
+     * If `$code` is empty, the other parameters will be ignored.
+     * When `$code` is not empty, `$message` will be used even if
+     * it is empty. The `$data` parameter will be used only if it
+     * is not empty.
+     *
+     * Though the class is constructed with a single error code and
+     * message, multiple codes can be added using the `add()` method.
+     *
+     * @since 2.1.0
+     *
+     * @param string|int $code Error code
+     * @param string $message Error message
+     * @param mixed $data Optional. Error data.
+     * @phpstan-return void
+     */
+    public function __construct($code = '', $message = '', $data = '')
+    {
+    }
+    /**
+     * Retrieve all error codes.
+     *
+     * @since 2.1.0
+     *
+     * @return array List of error codes, if available.
+     */
+    public function get_error_codes()
+    {
+    }
+    /**
+     * Retrieve first error code available.
+     *
+     * @since 2.1.0
+     *
+     * @return string|int Empty string, if no error codes.
+     */
+    public function get_error_code()
+    {
+    }
+    /**
+     * Retrieve all error messages or error messages matching code.
+     *
+     * @since 2.1.0
+     *
+     * @param string|int $code Optional. Retrieve messages matching code, if exists.
+     * @return array Error strings on success, or empty array on failure (if using code parameter).
+     */
+    public function get_error_messages($code = '')
+    {
+    }
+    /**
+     * Get single error message.
+     *
+     * This will get the first message available for the code. If no code is
+     * given then the first code available will be used.
+     *
+     * @since 2.1.0
+     *
+     * @param string|int $code Optional. Error code to retrieve message.
+     * @return string
+     */
+    public function get_error_message($code = '')
+    {
+    }
+    /**
+     * Retrieve error data for error code.
+     *
+     * @since 2.1.0
+     *
+     * @param string|int $code Optional. Error code.
+     * @return mixed Error data, if it exists.
+     */
+    public function get_error_data($code = '')
+    {
+    }
+    /**
+     * Verify if the instance contains errors.
+     *
+     * @since 5.1.0
+     *
+     * @return bool
+     */
+    public function has_errors()
+    {
+    }
+    /**
+     * Add an error or append additional message to an existing error.
+     *
+     * @since 2.1.0
+     *
+     * @param string|int $code Error code.
+     * @param string $message Error message.
+     * @param mixed $data Optional. Error data.
+     */
+    public function add($code, $message, $data = '')
+    {
+    }
+    /**
+     * Add data for error code.
+     *
+     * The error code can only contain one error data.
+     *
+     * @since 2.1.0
+     *
+     * @param mixed $data Error data.
+     * @param string|int $code Error code.
+     */
+    public function add_data($data, $code = '')
+    {
+    }
+    /**
+     * Removes the specified error.
+     *
+     * This function removes all error messages associated with the specified
+     * error code, along with any error data for that code.
+     *
+     * @since 4.1.0
+     *
+     * @param string|int $code Error code.
+     */
+    public function remove($code)
+    {
+    }
+}
