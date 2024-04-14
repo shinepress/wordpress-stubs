@@ -1,0 +1,263 @@
+<?php
+
+
+/**
+ * Locale API: WP_Locale class
+ *
+ * @package WordPress
+ * @subpackage i18n
+ * @since 4.6.0
+ */
+/**
+ * Core class used to store translated data for a locale.
+ *
+ * @since 2.1.0
+ * @since 4.6.0 Moved to its own file from wp-includes/locale.php.
+ */
+#[\AllowDynamicProperties]
+class WP_Locale
+{
+    /**
+     * Stores the translated strings for the full weekday names.
+     *
+     * @since 2.1.0
+     * @var string[]
+     */
+    public $weekday;
+    /**
+     * Stores the translated strings for the one character weekday names.
+     *
+     * There is a hack to make sure that Tuesday and Thursday, as well
+     * as Sunday and Saturday, don't conflict. See init() method for more.
+     *
+     * @see WP_Locale::init() for how to handle the hack.
+     *
+     * @since 2.1.0
+     * @var string[]
+     */
+    public $weekday_initial;
+    /**
+     * Stores the translated strings for the abbreviated weekday names.
+     *
+     * @since 2.1.0
+     * @var string[]
+     */
+    public $weekday_abbrev;
+    /**
+     * Stores the translated strings for the full month names.
+     *
+     * @since 2.1.0
+     * @var string[]
+     */
+    public $month;
+    /**
+     * Stores the translated strings for the month names in genitive case, if the locale specifies.
+     *
+     * @since 4.4.0
+     * @var string[]
+     */
+    public $month_genitive;
+    /**
+     * Stores the translated strings for the abbreviated month names.
+     *
+     * @since 2.1.0
+     * @var string[]
+     */
+    public $month_abbrev;
+    /**
+     * Stores the translated strings for 'am' and 'pm'.
+     *
+     * Also the capitalized versions.
+     *
+     * @since 2.1.0
+     * @var string[]
+     */
+    public $meridiem;
+    /**
+     * The text direction of the locale language.
+     *
+     * Default is left to right 'ltr'.
+     *
+     * @since 2.1.0
+     * @var string
+     */
+    public $text_direction = 'ltr';
+    /**
+     * The thousands separator and decimal point values used for localizing numbers.
+     *
+     * @since 2.3.0
+     * @var array
+     */
+    public $number_format;
+    /**
+     * The separator string used for localizing list item separator.
+     *
+     * @since 6.0.0
+     * @var string
+     */
+    public $list_item_separator;
+    /**
+     * Constructor which calls helper methods to set up object variables.
+     *
+     * @since 2.1.0
+     */
+    public function __construct()
+    {
+    }
+    /**
+     * Sets up the translated strings and object properties.
+     *
+     * The method creates the translatable strings for various
+     * calendar elements. Which allows for specifying locale
+     * specific calendar names and text direction.
+     *
+     * @since 2.1.0
+     *
+     * @global string $text_direction
+     * @global string $wp_version     The WordPress version string.
+     */
+    public function init()
+    {
+    }
+    /**
+     * Retrieves the full translated weekday word.
+     *
+     * Week starts on translated Sunday and can be fetched
+     * by using 0 (zero). So the week starts with 0 (zero)
+     * and ends on Saturday with is fetched by using 6 (six).
+     *
+     * @since 2.1.0
+     *
+     * @param int $weekday_number 0 for Sunday through 6 Saturday.
+     * @return string Full translated weekday.
+     */
+    public function get_weekday($weekday_number)
+    {
+    }
+    /**
+     * Retrieves the translated weekday initial.
+     *
+     * The weekday initial is retrieved by the translated
+     * full weekday word. When translating the weekday initial
+     * pay attention to make sure that the starting letter does
+     * not conflict.
+     *
+     * @since 2.1.0
+     *
+     * @param string $weekday_name Full translated weekday word.
+     * @return string Translated weekday initial.
+     */
+    public function get_weekday_initial($weekday_name)
+    {
+    }
+    /**
+     * Retrieves the translated weekday abbreviation.
+     *
+     * The weekday abbreviation is retrieved by the translated
+     * full weekday word.
+     *
+     * @since 2.1.0
+     *
+     * @param string $weekday_name Full translated weekday word.
+     * @return string Translated weekday abbreviation.
+     */
+    public function get_weekday_abbrev($weekday_name)
+    {
+    }
+    /**
+     * Retrieves the full translated month by month number.
+     *
+     * The $month_number parameter has to be a string
+     * because it must have the '0' in front of any number
+     * that is less than 10. Starts from '01' and ends at
+     * '12'.
+     *
+     * You can use an integer instead and it will add the
+     * '0' before the numbers less than 10 for you.
+     *
+     * @since 2.1.0
+     *
+     * @param string|int $month_number '01' through '12'.
+     * @return string Translated full month name.
+     */
+    public function get_month($month_number)
+    {
+    }
+    /**
+     * Retrieves translated version of month abbreviation string.
+     *
+     * The $month_name parameter is expected to be the translated or
+     * translatable version of the month.
+     *
+     * @since 2.1.0
+     *
+     * @param string $month_name Translated month to get abbreviated version.
+     * @return string Translated abbreviated month.
+     */
+    public function get_month_abbrev($month_name)
+    {
+    }
+    /**
+     * Retrieves translated version of meridiem string.
+     *
+     * The $meridiem parameter is expected to not be translated.
+     *
+     * @since 2.1.0
+     *
+     * @param string $meridiem Either 'am', 'pm', 'AM', or 'PM'. Not translated version.
+     * @return string Translated version
+     * @phpstan-param 'am'|'pm'|'AM'|'PM' $meridiem
+     */
+    public function get_meridiem($meridiem)
+    {
+    }
+    /**
+     * Global variables are deprecated.
+     *
+     * For backward compatibility only.
+     *
+     * @deprecated For backward compatibility only.
+     *
+     * @global array $weekday
+     * @global array $weekday_initial
+     * @global array $weekday_abbrev
+     * @global array $month
+     * @global array $month_abbrev
+     *
+     * @since 2.1.0
+     */
+    public function register_globals()
+    {
+    }
+    /**
+     * Checks if current locale is RTL.
+     *
+     * @since 3.0.0
+     * @return bool Whether locale is RTL.
+     */
+    public function is_rtl()
+    {
+    }
+    /**
+     * Registers date/time format strings for general POT.
+     *
+     * Private, unused method to add some date/time formats translated
+     * on wp-admin/options-general.php to the general POT that would
+     * otherwise be added to the admin POT.
+     *
+     * @since 3.6.0
+     */
+    public function _strings_for_pot()
+    {
+    }
+    /**
+     * Retrieves the localized list item separator.
+     *
+     * @since 6.0.0
+     *
+     * @return string Localized list item separator.
+     */
+    public function get_list_item_separator()
+    {
+    }
+}
