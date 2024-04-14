@@ -1,0 +1,56 @@
+<?php
+
+
+/**
+ * Iterator for arrays requiring filtered values
+ *
+ * @package Requests
+ * @subpackage Utilities
+ */
+/**
+ * Iterator for arrays requiring filtered values
+ *
+ * @package Requests
+ * @subpackage Utilities
+ */
+class Requests_Utility_FilteredIterator extends \ArrayIterator
+{
+    /**
+     * Callback to run as a filter
+     *
+     * @var callable
+     */
+    protected $callback;
+    /**
+     * Create a new iterator
+     *
+     * @param array $data
+     * @param callable $callback Callback to be called on each value
+     */
+    public function __construct($data, $callback)
+    {
+    }
+    /**
+     * Get the current item's value after filtering
+     *
+     * @return string
+     */
+    #[ReturnTypeWillChange]
+    public function current()
+    {
+    }
+    /**
+     * @inheritdoc
+     */
+    #[ReturnTypeWillChange]
+    public function unserialize($serialized)
+    {
+    }
+    /**
+     * @inheritdoc
+     */
+    #[ReturnTypeWillChange]
+    public function __unserialize($serialized)
+    {
+    }
+}
