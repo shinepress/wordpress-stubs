@@ -1,0 +1,17 @@
+<?php
+
+
+/**
+ * Prepares server-registered blocks for the block editor.
+ *
+ * Returns an associative array of registered block data keyed by block name. Data includes properties
+ * of a block relevant for client registration.
+ *
+ * @since 5.0.0
+ * @since 6.3.0 Added `selectors` field.
+ *
+ * @return array An associative array of registered block data.
+ */
+function get_block_editor_server_block_settings()
+{
+}
