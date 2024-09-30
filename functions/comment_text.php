@@ -1,0 +1,18 @@
+<?php
+
+
+/**
+ * Displays the text of the current comment.
+ *
+ * @since 0.71
+ * @since 4.4.0 Added the ability for `$comment_id` to also accept a WP_Comment object.
+ *
+ * @see Walker_Comment::comment()
+ *
+ * @param int|WP_Comment $comment_id Optional. WP_Comment or ID of the comment for which to print the text.
+ *                                   Default current comment.
+ * @param array          $args       Optional. An array of arguments. Default empty array.
+ */
+function comment_text($comment_id = 0, $args = array())
+{
+}

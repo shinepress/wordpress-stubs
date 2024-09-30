@@ -1,0 +1,328 @@
+<?php
+
+
+/**
+ * Core class used by the HTML processor during HTML parsing
+ * for managing the stack of open elements.
+ *
+ * This class is designed for internal use by the HTML processor.
+ *
+ * > Initially, the stack of open elements is empty. The stack grows
+ * > downwards; the topmost node on the stack is the first one added
+ * > to the stack, and the bottommost node of the stack is the most
+ * > recently added node in the stack (notwithstanding when the stack
+ * > is manipulated in a random access fashion as part of the handling
+ * > for misnested tags).
+ *
+ * @since 6.4.0
+ *
+ * @access private
+ *
+ * @see https://html.spec.whatwg.org/#stack-of-open-elements
+ * @see WP_HTML_Processor
+ */
+class WP_HTML_Open_Elements
+{
+    /**
+     * Holds the stack of open element references.
+     *
+     * @since 6.4.0
+     *
+     * @var WP_HTML_Token[]
+     */
+    public $stack = array();
+    /**
+     * Sets a pop handler that will be called when an item is popped off the stack of
+     * open elements.
+     *
+     * The function will be called with the pushed item as its argument.
+     *
+     * @since 6.6.0
+     *
+     * @param Closure $handler The handler function.
+     */
+    public function set_pop_handler(\Closure $handler)
+    {
+    }
+    /**
+     * Sets a push handler that will be called when an item is pushed onto the stack of
+     * open elements.
+     *
+     * The function will be called with the pushed item as its argument.
+     *
+     * @since 6.6.0
+     *
+     * @param Closure $handler The handler function.
+     */
+    public function set_push_handler(\Closure $handler)
+    {
+    }
+    /**
+     * Reports if a specific node is in the stack of open elements.
+     *
+     * @since 6.4.0
+     *
+     * @param WP_HTML_Token $token Look for this node in the stack.
+     * @return bool Whether the referenced node is in the stack of open elements.
+     */
+    public function contains_node($token)
+    {
+    }
+    /**
+     * Returns how many nodes are currently in the stack of open elements.
+     *
+     * @since 6.4.0
+     *
+     * @return int How many node are in the stack of open elements.
+     */
+    public function count()
+    {
+    }
+    /**
+     * Returns the node at the end of the stack of open elements,
+     * if one exists. If the stack is empty, returns null.
+     *
+     * @since 6.4.0
+     *
+     * @return WP_HTML_Token|null Last node in the stack of open elements, if one exists, otherwise null.
+     */
+    public function current_node()
+    {
+    }
+    /**
+     * Returns whether an element is in a specific scope.
+     *
+     * ## HTML Support
+     *
+     * This function skips checking for the termination list because there
+     * are no supported elements which appear in the termination list.
+     *
+     * @since 6.4.0
+     *
+     * @see https://html.spec.whatwg.org/#has-an-element-in-the-specific-scope
+     *
+     * @param string   $tag_name         Name of tag check.
+     * @param string[] $termination_list List of elements that terminate the search.
+     * @return bool Whether the element was found in a specific scope.
+     */
+    public function has_element_in_specific_scope($tag_name, $termination_list)
+    {
+    }
+    /**
+     * Returns whether a particular element is in scope.
+     *
+     * @since 6.4.0
+     *
+     * @see https://html.spec.whatwg.org/#has-an-element-in-scope
+     *
+     * @param string $tag_name Name of tag to check.
+     * @return bool Whether given element is in scope.
+     */
+    public function has_element_in_scope($tag_name)
+    {
+    }
+    /**
+     * Returns whether a particular element is in list item scope.
+     *
+     * @since 6.4.0
+     * @since 6.5.0 Implemented: no longer throws on every invocation.
+     *
+     * @see https://html.spec.whatwg.org/#has-an-element-in-list-item-scope
+     *
+     * @param string $tag_name Name of tag to check.
+     * @return bool Whether given element is in scope.
+     */
+    public function has_element_in_list_item_scope($tag_name)
+    {
+    }
+    /**
+     * Returns whether a particular element is in button scope.
+     *
+     * @since 6.4.0
+     *
+     * @see https://html.spec.whatwg.org/#has-an-element-in-button-scope
+     *
+     * @param string $tag_name Name of tag to check.
+     * @return bool Whether given element is in scope.
+     */
+    public function has_element_in_button_scope($tag_name)
+    {
+    }
+    /**
+     * Returns whether a particular element is in table scope.
+     *
+     * @since 6.4.0
+     *
+     * @see https://html.spec.whatwg.org/#has-an-element-in-table-scope
+     *
+     * @throws WP_HTML_Unsupported_Exception Always until this function is implemented.
+     *
+     * @param string $tag_name Name of tag to check.
+     * @return bool Whether given element is in scope.
+     */
+    public function has_element_in_table_scope($tag_name)
+    {
+    }
+    /**
+     * Returns whether a particular element is in select scope.
+     *
+     * @since 6.4.0
+     *
+     * @see https://html.spec.whatwg.org/#has-an-element-in-select-scope
+     *
+     * @throws WP_HTML_Unsupported_Exception Always until this function is implemented.
+     *
+     * @param string $tag_name Name of tag to check.
+     * @return bool Whether given element is in scope.
+     */
+    public function has_element_in_select_scope($tag_name)
+    {
+    }
+    /**
+     * Returns whether a P is in BUTTON scope.
+     *
+     * @since 6.4.0
+     *
+     * @see https://html.spec.whatwg.org/#has-an-element-in-button-scope
+     *
+     * @return bool Whether a P is in BUTTON scope.
+     */
+    public function has_p_in_button_scope()
+    {
+    }
+    /**
+     * Pops a node off of the stack of open elements.
+     *
+     * @since 6.4.0
+     *
+     * @see https://html.spec.whatwg.org/#stack-of-open-elements
+     *
+     * @return bool Whether a node was popped off of the stack.
+     */
+    public function pop()
+    {
+    }
+    /**
+     * Pops nodes off of the stack of open elements until one with the given tag name has been popped.
+     *
+     * @since 6.4.0
+     *
+     * @see WP_HTML_Open_Elements::pop
+     *
+     * @param string $tag_name Name of tag that needs to be popped off of the stack of open elements.
+     * @return bool Whether a tag of the given name was found and popped off of the stack of open elements.
+     */
+    public function pop_until($tag_name)
+    {
+    }
+    /**
+     * Pushes a node onto the stack of open elements.
+     *
+     * @since 6.4.0
+     *
+     * @see https://html.spec.whatwg.org/#stack-of-open-elements
+     *
+     * @param WP_HTML_Token $stack_item Item to add onto stack.
+     */
+    public function push($stack_item)
+    {
+    }
+    /**
+     * Removes a specific node from the stack of open elements.
+     *
+     * @since 6.4.0
+     *
+     * @param WP_HTML_Token $token The node to remove from the stack of open elements.
+     * @return bool Whether the node was found and removed from the stack of open elements.
+     */
+    public function remove_node($token)
+    {
+    }
+    /**
+     * Steps through the stack of open elements, starting with the top element
+     * (added first) and walking downwards to the one added last.
+     *
+     * This generator function is designed to be used inside a "foreach" loop.
+     *
+     * Example:
+     *
+     *     $html = '<em><strong><a>We are here';
+     *     foreach ( $stack->walk_down() as $node ) {
+     *         echo "{$node->node_name} -> ";
+     *     }
+     *     > EM -> STRONG -> A ->
+     *
+     * To start with the most-recently added element and walk towards the top,
+     * see WP_HTML_Open_Elements::walk_up().
+     *
+     * @since 6.4.0
+     */
+    public function walk_down()
+    {
+    }
+    /**
+     * Steps through the stack of open elements, starting with the bottom element
+     * (added last) and walking upwards to the one added first.
+     *
+     * This generator function is designed to be used inside a "foreach" loop.
+     *
+     * Example:
+     *
+     *     $html = '<em><strong><a>We are here';
+     *     foreach ( $stack->walk_up() as $node ) {
+     *         echo "{$node->node_name} -> ";
+     *     }
+     *     > A -> STRONG -> EM ->
+     *
+     * To start with the first added element and walk towards the bottom,
+     * see WP_HTML_Open_Elements::walk_down().
+     *
+     * @since 6.4.0
+     * @since 6.5.0 Accepts $above_this_node to start traversal above a given node, if it exists.
+     *
+     * @param ?WP_HTML_Token $above_this_node Start traversing above this node, if provided and if the node exists.
+     */
+    public function walk_up($above_this_node = \null)
+    {
+    }
+    /**
+     * Updates internal flags after adding an element.
+     *
+     * Certain conditions (such as "has_p_in_button_scope") are maintained here as
+     * flags that are only modified when adding and removing elements. This allows
+     * the HTML Processor to quickly check for these conditions instead of iterating
+     * over the open stack elements upon each new tag it encounters. These flags,
+     * however, need to be maintained as items are added and removed from the stack.
+     *
+     * @since 6.4.0
+     *
+     * @param WP_HTML_Token $item Element that was added to the stack of open elements.
+     */
+    public function after_element_push($item)
+    {
+    }
+    /**
+     * Updates internal flags after removing an element.
+     *
+     * Certain conditions (such as "has_p_in_button_scope") are maintained here as
+     * flags that are only modified when adding and removing elements. This allows
+     * the HTML Processor to quickly check for these conditions instead of iterating
+     * over the open stack elements upon each new tag it encounters. These flags,
+     * however, need to be maintained as items are added and removed from the stack.
+     *
+     * @since 6.4.0
+     *
+     * @param WP_HTML_Token $item Element that was removed from the stack of open elements.
+     */
+    public function after_element_pop($item)
+    {
+    }
+    /**
+     * Wakeup magic method.
+     *
+     * @since 6.6.0
+     */
+    public function __wakeup()
+    {
+    }
+}
