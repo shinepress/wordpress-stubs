@@ -1,0 +1,21 @@
+<?php
+
+
+/**
+ * Runs the hooked blocks algorithm on the given content.
+ *
+ * @since 6.6.0
+ * @since 6.7.0 Injects the `theme` attribute into Template Part blocks, even if no hooked blocks are registered.
+ * @access private
+ *
+ * @param string                          $content  Serialized content.
+ * @param WP_Block_Template|WP_Post|array $context  A block template, template part, `wp_navigation` post object,
+ *                                                  or pattern that the blocks belong to.
+ * @param callable                        $callback A function that will be called for each block to generate
+ *                                                  the markup for a given list of blocks that are hooked to it.
+ *                                                  Default: 'insert_hooked_blocks'.
+ * @return string The serialized markup.
+ */
+function apply_block_hooks_to_content($content, $context, $callback = 'insert_hooked_blocks')
+{
+}

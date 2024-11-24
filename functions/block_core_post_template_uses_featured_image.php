@@ -1,0 +1,15 @@
+<?php
+
+
+/**
+ * Determines whether a block list contains a block that uses the featured image.
+ *
+ * @since 6.0.0
+ *
+ * @param WP_Block_List $inner_blocks Inner block instance.
+ *
+ * @return bool Whether the block list contains a block that uses the featured image.
+ */
+function block_core_post_template_uses_featured_image($inner_blocks)
+{
+}
