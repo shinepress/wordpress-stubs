@@ -1,0 +1,15 @@
+<?php
+
+
+/**
+ * Loads the WP image-editing interface.
+ *
+ * @since 2.9.0
+ *
+ * @param int          $post_id Attachment post ID.
+ * @param false|object $msg     Optional. Message to display for image editor updates or errors.
+ *                              Default false.
+ */
+function wp_image_editor($post_id, $msg = \false)
+{
+}

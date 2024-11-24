@@ -1,0 +1,16 @@
+<?php
+
+
+/**
+ * Loads and primes caches of certain often requested network options if is_multisite().
+ *
+ * @since 3.0.0
+ * @since 6.3.0 Also prime caches for network options when persistent object cache is enabled.
+ * @since 6.6.0 Uses wp_prime_network_option_caches().
+ *
+ * @param int $network_id Optional. Network ID of network for which to prime network options cache. Defaults to current network.
+ * @phpstan-return void
+ */
+function wp_load_core_site_options($network_id = \null)
+{
+}

@@ -1,0 +1,15 @@
+<?php
+
+
+/**
+ * Converts a comma- or space-separated list of scalar values to an array.
+ *
+ * @since 5.1.0
+ *
+ * @param array|string $input_list List of values.
+ * @return array Array of values.
+ * @phpstan-return ($input_list is array ? array<scalar> : list<string>)
+ */
+function wp_parse_list($input_list)
+{
+}
