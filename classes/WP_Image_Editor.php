@@ -1,0 +1,341 @@
+<?php
+
+
+/**
+ * Base image editor class from which implementations extend
+ *
+ * @since 3.5.0
+ */
+#[\AllowDynamicProperties]
+abstract class WP_Image_Editor
+{
+    protected $file = \null;
+    protected $size = \null;
+    protected $mime_type = \null;
+    protected $output_mime_type = \null;
+    protected $default_mime_type = 'image/jpeg';
+    protected $quality = \false;
+    protected $default_quality = 82;
+    /**
+     * Each instance handles a single file.
+     *
+     * @param string $file Path to the file to load.
+     */
+    public function __construct($file)
+    {
+    }
+    /**
+     * Checks to see if current environment supports the editor chosen.
+     * Must be overridden in a subclass.
+     *
+     * @since 3.5.0
+     *
+     * @abstract
+     *
+     * @param array $args
+     * @return bool
+     */
+    public static function test($args = array())
+    {
+    }
+    /**
+     * Checks to see if editor supports the mime-type specified.
+     * Must be overridden in a subclass.
+     *
+     * @since 3.5.0
+     *
+     * @abstract
+     *
+     * @param string $mime_type
+     * @return bool
+     */
+    public static function supports_mime_type($mime_type)
+    {
+    }
+    /**
+     * Loads image from $this->file into editor.
+     *
+     * @since 3.5.0
+     * @abstract
+     *
+     * @return true|WP_Error True if loaded; WP_Error on failure.
+     */
+    abstract public function load();
+    /**
+     * Saves current image to file.
+     *
+     * @since 3.5.0
+     * @since 6.0.0 The `$filesize` value was added to the returned array.
+     * @abstract
+     *
+     * @param string $destfilename Optional. Destination filename. Default null.
+     * @param string $mime_type    Optional. The mime-type. Default null.
+     * @return array|WP_Error {
+     *     Array on success or WP_Error if the file failed to save.
+     *
+     *     @type string $path      Path to the image file.
+     *     @type string $file      Name of the image file.
+     *     @type int    $width     Image width.
+     *     @type int    $height    Image height.
+     *     @type string $mime-type The mime type of the image.
+     *     @type int    $filesize  File size of the image.
+     * }
+     * @phpstan-return \WP_Error|array{
+     *   path: string,
+     *   file: string,
+     *   width: int,
+     *   height: int,
+     *   mime-type: string,
+     *   filesize: int,
+     * }
+     */
+    abstract public function save($destfilename = \null, $mime_type = \null);
+    /**
+     * Resizes current image.
+     *
+     * At minimum, either a height or width must be provided.
+     * If one of the two is set to null, the resize will
+     * maintain aspect ratio according to the provided dimension.
+     *
+     * @since 3.5.0
+     * @abstract
+     *
+     * @param int|null   $max_w Image width.
+     * @param int|null   $max_h Image height.
+     * @param bool|array $crop  {
+     *     Optional. Image cropping behavior. If false, the image will be scaled (default).
+     *     If true, image will be cropped to the specified dimensions using center positions.
+     *     If an array, the image will be cropped using the array to specify the crop location:
+     *
+     *     @type string $0 The x crop position. Accepts 'left' 'center', or 'right'.
+     *     @type string $1 The y crop position. Accepts 'top', 'center', or 'bottom'.
+     * }
+     * @return true|WP_Error
+     * @phpstan-param bool|array{
+     *   0: string,
+     *   1: string,
+     * } $crop
+     */
+    abstract public function resize($max_w, $max_h, $crop = \false);
+    /**
+     * Resize multiple images from a single source.
+     *
+     * @since 3.5.0
+     * @abstract
+     *
+     * @param array $sizes {
+     *     An array of image size arrays. Default sizes are 'small', 'medium', 'large'.
+     *
+     *     @type array ...$0 {
+     *         @type int        $width  Image width.
+     *         @type int        $height Image height.
+     *         @type bool|array $crop   Optional. Whether to crop the image. Default false.
+     *     }
+     * }
+     * @return array An array of resized images metadata by size.
+     * @phpstan-param array<int|string, array{
+     *   width: int,
+     *   height: int,
+     *   crop?: bool|array,
+     * }> $sizes
+     */
+    abstract public function multi_resize($sizes);
+    /**
+     * Crops Image.
+     *
+     * @since 3.5.0
+     * @abstract
+     *
+     * @param int  $src_x   The start x position to crop from.
+     * @param int  $src_y   The start y position to crop from.
+     * @param int  $src_w   The width to crop.
+     * @param int  $src_h   The height to crop.
+     * @param int  $dst_w   Optional. The destination width.
+     * @param int  $dst_h   Optional. The destination height.
+     * @param bool $src_abs Optional. If the source crop points are absolute.
+     * @return true|WP_Error
+     */
+    abstract public function crop($src_x, $src_y, $src_w, $src_h, $dst_w = \null, $dst_h = \null, $src_abs = \false);
+    /**
+     * Rotates current image counter-clockwise by $angle.
+     *
+     * @since 3.5.0
+     * @abstract
+     *
+     * @param float $angle
+     * @return true|WP_Error
+     */
+    abstract public function rotate($angle);
+    /**
+     * Flips current image.
+     *
+     * @since 3.5.0
+     * @abstract
+     *
+     * @param bool $horz Flip along Horizontal Axis
+     * @param bool $vert Flip along Vertical Axis
+     * @return true|WP_Error
+     */
+    abstract public function flip($horz, $vert);
+    /**
+     * Streams current image to browser.
+     *
+     * @since 3.5.0
+     * @abstract
+     *
+     * @param string $mime_type The mime type of the image.
+     * @return true|WP_Error True on success, WP_Error object on failure.
+     */
+    abstract public function stream($mime_type = \null);
+    /**
+     * Gets dimensions of image.
+     *
+     * @since 3.5.0
+     *
+     * @return int[] {
+     *     Dimensions of the image.
+     *
+     *     @type int $width  The image width.
+     *     @type int $height The image height.
+     * }
+     * @phpstan-return array{
+     *   width: int,
+     *   height: int,
+     * }
+     */
+    public function get_size()
+    {
+    }
+    /**
+     * Sets current image size.
+     *
+     * @since 3.5.0
+     *
+     * @param int $width
+     * @param int $height
+     * @return true
+     */
+    protected function update_size($width = \null, $height = \null)
+    {
+    }
+    /**
+     * Gets the Image Compression quality on a 1-100% scale.
+     *
+     * @since 4.0.0
+     *
+     * @return int Compression Quality. Range: [1,100]
+     */
+    public function get_quality()
+    {
+    }
+    /**
+     * Sets Image Compression quality on a 1-100% scale.
+     *
+     * @since 3.5.0
+     *
+     * @param int $quality Compression Quality. Range: [1,100]
+     * @return true|WP_Error True if set successfully; WP_Error on failure.
+     */
+    public function set_quality($quality = \null)
+    {
+    }
+    /**
+     * Returns the default compression quality setting for the mime type.
+     *
+     * @since 5.8.1
+     *
+     * @param string $mime_type
+     * @return int The default quality setting for the mime type.
+     */
+    protected function get_default_quality($mime_type)
+    {
+    }
+    /**
+     * Returns preferred mime-type and extension based on provided
+     * file's extension and mime, or current file's extension and mime.
+     *
+     * Will default to $this->default_mime_type if requested is not supported.
+     *
+     * Provides corrected filename only if filename is provided.
+     *
+     * @since 3.5.0
+     *
+     * @param string $filename
+     * @param string $mime_type
+     * @return array { filename|null, extension, mime-type }
+     */
+    protected function get_output_format($filename = \null, $mime_type = \null)
+    {
+    }
+    /**
+     * Builds an output filename based on current file, and adding proper suffix
+     *
+     * @since 3.5.0
+     *
+     * @param string $suffix
+     * @param string $dest_path
+     * @param string $extension
+     * @return string filename
+     */
+    public function generate_filename($suffix = \null, $dest_path = \null, $extension = \null)
+    {
+    }
+    /**
+     * Builds and returns proper suffix for file based on height and width.
+     *
+     * @since 3.5.0
+     *
+     * @return string|false suffix
+     */
+    public function get_suffix()
+    {
+    }
+    /**
+     * Check if a JPEG image has EXIF Orientation tag and rotate it if needed.
+     *
+     * @since 5.3.0
+     *
+     * @return bool|WP_Error True if the image was rotated. False if not rotated (no EXIF data or the image doesn't need to be rotated).
+     *                       WP_Error if error while rotating.
+     */
+    public function maybe_exif_rotate()
+    {
+    }
+    /**
+     * Either calls editor's save function or handles file as a stream.
+     *
+     * @since 3.5.0
+     *
+     * @param string   $filename
+     * @param callable $callback
+     * @param array    $arguments
+     * @return bool
+     */
+    protected function make_image($filename, $callback, $arguments)
+    {
+    }
+    /**
+     * Returns first matched mime-type from extension,
+     * as mapped from wp_get_mime_types()
+     *
+     * @since 3.5.0
+     *
+     * @param string $extension
+     * @return string|false
+     */
+    protected static function get_mime_type($extension = \null)
+    {
+    }
+    /**
+     * Returns first matched extension from Mime-type,
+     * as mapped from wp_get_mime_types()
+     *
+     * @since 3.5.0
+     *
+     * @param string $mime_type
+     * @return string|false
+     */
+    protected static function get_extension($mime_type = \null)
+    {
+    }
+}
