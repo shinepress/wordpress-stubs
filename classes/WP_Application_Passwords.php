@@ -1,0 +1,310 @@
+<?php
+
+
+/**
+ * Class for displaying, modifying, and sanitizing application passwords.
+ *
+ * @package WordPress
+ */
+#[\AllowDynamicProperties]
+class WP_Application_Passwords
+{
+    /**
+     * The application passwords user meta key.
+     *
+     * @since 5.6.0
+     *
+     * @var string
+     */
+    const USERMETA_KEY_APPLICATION_PASSWORDS = '_application_passwords';
+    /**
+     * The option name used to store whether application passwords are in use.
+     *
+     * @since 5.6.0
+     *
+     * @var string
+     */
+    const OPTION_KEY_IN_USE = 'using_application_passwords';
+    /**
+     * The generated application password length.
+     *
+     * @since 5.6.0
+     *
+     * @var int
+     */
+    const PW_LENGTH = 24;
+    /**
+     * Checks if application passwords are being used by the site.
+     *
+     * This returns true if at least one application password has ever been created.
+     *
+     * @since 5.6.0
+     *
+     * @return bool
+     */
+    public static function is_in_use()
+    {
+    }
+    /**
+     * Creates a new application password.
+     *
+     * @since 5.6.0
+     * @since 5.7.0 Returns WP_Error if application name already exists.
+     * @since 6.8.0 The hashed password value now uses wp_fast_hash() instead of phpass.
+     *
+     * @param int   $user_id  User ID.
+     * @param array $args     {
+     *     Arguments used to create the application password.
+     *
+     *     @type string $name   The name of the application password.
+     *     @type string $app_id A UUID provided by the application to uniquely identify it.
+     * }
+     * @return array|WP_Error {
+     *     Application password details, or a WP_Error instance if an error occurs.
+     *
+     *     @type string $0 The generated application password in plain text.
+     *     @type array  $1 {
+     *         The details about the created password.
+     *
+     *         @type string $uuid      The unique identifier for the application password.
+     *         @type string $app_id    A UUID provided by the application to uniquely identify it.
+     *         @type string $name      The name of the application password.
+     *         @type string $password  A one-way hash of the password.
+     *         @type int    $created   Unix timestamp of when the password was created.
+     *         @type null   $last_used Null.
+     *         @type null   $last_ip   Null.
+     *     }
+     * }
+     * @phpstan-param array{
+     *   name?: string,
+     *   app_id?: string,
+     * } $args
+     * @phpstan-return \WP_Error|array{
+     *   0: string,
+     *   1: array{
+     *     uuid: string,
+     *     app_id: string,
+     *     name: string,
+     *     password: string,
+     *     created: int,
+     *     last_used: null,
+     *     last_ip: null,
+     *   },
+     * }
+     */
+    public static function create_new_application_password($user_id, $args = array())
+    {
+    }
+    /**
+     * Gets a user's application passwords.
+     *
+     * @since 5.6.0
+     *
+     * @param int $user_id User ID.
+     * @return array {
+     *     The list of application passwords.
+     *
+     *     @type array ...$0 {
+     *         @type string      $uuid      The unique identifier for the application password.
+     *         @type string      $app_id    A UUID provided by the application to uniquely identify it.
+     *         @type string      $name      The name of the application password.
+     *         @type string      $password  A one-way hash of the password.
+     *         @type int         $created   Unix timestamp of when the password was created.
+     *         @type int|null    $last_used The Unix timestamp of the GMT date the application password was last used.
+     *         @type string|null $last_ip   The IP address the application password was last used by.
+     *     }
+     * }
+     * @phpstan-return array<int|string, array{
+     *   uuid: string,
+     *   app_id: string,
+     *   name: string,
+     *   password: string,
+     *   created: int,
+     *   last_used: int|null,
+     *   last_ip: string|null,
+     * }>
+     */
+    public static function get_user_application_passwords($user_id)
+    {
+    }
+    /**
+     * Gets a user's application password with the given UUID.
+     *
+     * @since 5.6.0
+     *
+     * @param int    $user_id User ID.
+     * @param string $uuid    The password's UUID.
+     * @return array|null {
+     *     The application password if found, null otherwise.
+     *
+     *     @type string      $uuid      The unique identifier for the application password.
+     *     @type string      $app_id    A UUID provided by the application to uniquely identify it.
+     *     @type string      $name      The name of the application password.
+     *     @type string      $password  A one-way hash of the password.
+     *     @type int         $created   Unix timestamp of when the password was created.
+     *     @type int|null    $last_used The Unix timestamp of the GMT date the application password was last used.
+     *     @type string|null $last_ip   The IP address the application password was last used by.
+     * }
+     * @phpstan-return null|array{
+     *   uuid: string,
+     *   app_id: string,
+     *   name: string,
+     *   password: string,
+     *   created: int,
+     *   last_used: int|null,
+     *   last_ip: string|null,
+     * }
+     */
+    public static function get_user_application_password($user_id, $uuid)
+    {
+    }
+    /**
+     * Checks if an application password with the given name exists for this user.
+     *
+     * @since 5.7.0
+     *
+     * @param int    $user_id User ID.
+     * @param string $name    Application name.
+     * @return bool Whether the provided application name exists.
+     */
+    public static function application_name_exists_for_user($user_id, $name)
+    {
+    }
+    /**
+     * Updates an application password.
+     *
+     * @since 5.6.0
+     * @since 6.8.0 The actual password should now be hashed using wp_fast_hash().
+     *
+     * @param int    $user_id User ID.
+     * @param string $uuid    The password's UUID.
+     * @param array  $update  {
+     *     Information about the application password to update.
+     *
+     *     @type string      $uuid      The unique identifier for the application password.
+     *     @type string      $app_id    A UUID provided by the application to uniquely identify it.
+     *     @type string      $name      The name of the application password.
+     *     @type string      $password  A one-way hash of the password.
+     *     @type int         $created   Unix timestamp of when the password was created.
+     *     @type int|null    $last_used The Unix timestamp of the GMT date the application password was last used.
+     *     @type string|null $last_ip   The IP address the application password was last used by.
+     * }
+     * @return true|WP_Error True if successful, otherwise a WP_Error instance is returned on error.
+     * @phpstan-param array{
+     *   uuid?: string,
+     *   app_id?: string,
+     *   name?: string,
+     *   password?: string,
+     *   created?: int,
+     *   last_used?: int|null,
+     *   last_ip?: string|null,
+     * } $update
+     */
+    public static function update_application_password($user_id, $uuid, $update = array())
+    {
+    }
+    /**
+     * Records that an application password has been used.
+     *
+     * @since 5.6.0
+     *
+     * @param int    $user_id User ID.
+     * @param string $uuid    The password's UUID.
+     * @return true|WP_Error True if the usage was recorded, a WP_Error if an error occurs.
+     */
+    public static function record_application_password_usage($user_id, $uuid)
+    {
+    }
+    /**
+     * Deletes an application password.
+     *
+     * @since 5.6.0
+     *
+     * @param int    $user_id User ID.
+     * @param string $uuid    The password's UUID.
+     * @return true|WP_Error Whether the password was successfully found and deleted, a WP_Error otherwise.
+     */
+    public static function delete_application_password($user_id, $uuid)
+    {
+    }
+    /**
+     * Deletes all application passwords for the given user.
+     *
+     * @since 5.6.0
+     *
+     * @param int $user_id User ID.
+     * @return int|WP_Error The number of passwords that were deleted or a WP_Error on failure.
+     */
+    public static function delete_all_application_passwords($user_id)
+    {
+    }
+    /**
+     * Sets a user's application passwords.
+     *
+     * @since 5.6.0
+     *
+     * @param int   $user_id   User ID.
+     * @param array $passwords {
+     *     The list of application passwords.
+     *
+     *     @type array ...$0 {
+     *         @type string      $uuid      The unique identifier for the application password.
+     *         @type string      $app_id    A UUID provided by the application to uniquely identify it.
+     *         @type string      $name      The name of the application password.
+     *         @type string      $password  A one-way hash of the password.
+     *         @type int         $created   Unix timestamp of when the password was created.
+     *         @type int|null    $last_used The Unix timestamp of the GMT date the application password was last used.
+     *         @type string|null $last_ip   The IP address the application password was last used by.
+     *     }
+     * }
+     * @return int|bool User meta ID if the key didn't exist (ie. this is the first time that an application password
+     *                  has been saved for the user), true on successful update, false on failure or if the value passed
+     *                  is the same as the one that is already in the database.
+     * @phpstan-param array<int|string, array{
+     *   uuid: string,
+     *   app_id: string,
+     *   name: string,
+     *   password: string,
+     *   created: int,
+     *   last_used: int|null,
+     *   last_ip: string|null,
+     * }> $passwords
+     */
+    protected static function set_user_application_passwords($user_id, $passwords)
+    {
+    }
+    /**
+     * Sanitizes and then splits a password into smaller chunks.
+     *
+     * @since 5.6.0
+     *
+     * @param string $raw_password The raw application password.
+     * @return string The chunked password.
+     */
+    public static function chunk_password($raw_password)
+    {
+    }
+    /**
+     * Hashes a plaintext application password.
+     *
+     * @since 6.8.0
+     *
+     * @param string $password Plaintext password.
+     * @return string Hashed password.
+     */
+    public static function hash_password(string $password): string
+    {
+    }
+    /**
+     * Checks a plaintext application password against a hashed password.
+     *
+     * @since 6.8.0
+     *
+     * @param string $password Plaintext password.
+     * @param string $hash     Hash of the password to check against.
+     * @return bool Whether the password matches the hashed password.
+     */
+    public static function check_password(string $password, string $hash): bool
+    {
+    }
+}

@@ -1,0 +1,11 @@
+<?php
+
+
+/**
+ * Registers the `core/page-list-item` block on server.
+ *
+ * @since 6.3.0
+ */
+function register_block_core_page_list_item()
+{
+}
