@@ -1,1 +1,1 @@
-# wordpress-stubs
+# shinepress/wordpress-stubs
