@@ -1,4 +1,5 @@
 {
 	"name": "shinepress/wordpress-stubs",
-	"type": "library"
+	"type": "library",
+	"license": "MIT"
 }
