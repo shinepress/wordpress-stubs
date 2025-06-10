@@ -1,5 +1,8 @@
 # shinepress/wordpress-stubs
 
+[![Latest Version](https://img.shields.io/packagist/v/shinepress/wordpress-stubs?label=latest)](https://packagist.org/packages/shinepress/wordpress-stubs/)
+[![Downloads](https://img.shields.io/packagist/dt/shinepress/wordpress-stubs?label=downloads)](https://packagist.org/packages/shinepress/wordpress-stubs/)
+
 ## Installation
 
 The recommendend installation method is with composer:
@@ -15,3 +18,7 @@ parameters:
     bootstrapFiles:
         - ./vendor/shinepress/wordpress-stubs/autoload.php
 ```
+
+## Attribution
+
+All tagged releases are automatically generated from [php-stubs/wordpress-stubs](https://github.com/php-stubs/wordpress-stubs/).
