@@ -1,0 +1,94 @@
+<?php
+
+
+/**
+ * Retrieves the terms in a given taxonomy or list of taxonomies.
+ *
+ * You can fully inject any customizations to the query before it is sent, as
+ * well as control the output with a filter.
+ *
+ * The return type varies depending on the value passed to `$args['fields']`. See
+ * WP_Term_Query::get_terms() for details. In all cases, a `WP_Error` object will
+ * be returned if an invalid taxonomy is requested.
+ *
+ * The {@see 'get_terms'} filter will be called when the cache has the term and will
+ * pass the found term along with the array of $taxonomies and array of $args.
+ * This filter is also called before the array of terms is passed and will pass
+ * the array of terms, along with the $taxonomies and $args.
+ *
+ * The {@see 'list_terms_exclusions'} filter passes the compiled exclusions along with
+ * the $args.
+ *
+ * The {@see 'get_terms_orderby'} filter passes the `ORDER BY` clause for the query
+ * along with the $args array.
+ *
+ * Taxonomy or an array of taxonomies should be passed via the 'taxonomy' argument
+ * in the `$args` array:
+ *
+ *     $terms = get_terms( array(
+ *         'taxonomy'   => 'post_tag',
+ *         'hide_empty' => false,
+ *     ) );
+ *
+ * Prior to 4.5.0, taxonomy was passed as the first parameter of `get_terms()`.
+ *
+ * @since 2.3.0
+ * @since 4.2.0 Introduced 'name' and 'childless' parameters.
+ * @since 4.4.0 Introduced the ability to pass 'term_id' as an alias of 'id' for the `orderby` parameter.
+ *              Introduced the 'meta_query' and 'update_term_meta_cache' parameters. Converted to return
+ *              a list of WP_Term objects.
+ * @since 4.5.0 Changed the function signature so that the `$args` array can be provided as the first parameter.
+ *              Introduced 'meta_key' and 'meta_value' parameters. Introduced the ability to order results by metadata.
+ * @since 4.8.0 Introduced 'suppress_filter' parameter.
+ *
+ * @internal The `$deprecated` parameter is parsed for backward compatibility only.
+ *
+ * @param array|string $args       Optional. Array or string of arguments. See WP_Term_Query::__construct()
+ *                                 for information on accepted arguments. Default empty array.
+ * @param array|string $deprecated Optional. Argument array, when using the legacy function parameter format.
+ *                                 If present, this parameter will be interpreted as `$args`, and the first
+ *                                 function parameter will be parsed as a taxonomy or array of taxonomies.
+ *                                 Default empty.
+ * @return WP_Term[]|int[]|string[]|string|WP_Error Array of terms, a count thereof as a numeric string,
+ *                                                  or WP_Error if any of the taxonomies do not exist.
+ *                                                  See the function description for more information.
+ * @phpstan-param array{
+ *   taxonomy?: string|string[],
+ *   object_ids?: int|int[],
+ *   orderby?: string,
+ *   order?: string,
+ *   hide_empty?: bool|int,
+ *   include?: int[]|string,
+ *   exclude?: int[]|string,
+ *   exclude_tree?: int[]|string,
+ *   number?: int|string,
+ *   offset?: int,
+ *   fields?: string,
+ *   name?: string|string[],
+ *   slug?: string|string[],
+ *   term_taxonomy_id?: int|int[],
+ *   hierarchical?: bool,
+ *   search?: string,
+ *   name__like?: string,
+ *   description__like?: string,
+ *   pad_counts?: bool,
+ *   get?: string,
+ *   child_of?: int,
+ *   parent?: int,
+ *   childless?: bool,
+ *   cache_domain?: string,
+ *   cache_results?: bool,
+ *   update_term_meta_cache?: bool,
+ *   meta_key?: string|string[],
+ *   meta_value?: string|string[],
+ *   meta_compare?: string,
+ *   meta_compare_key?: string,
+ *   meta_type?: string,
+ *   meta_type_key?: string,
+ *   meta_query?: array,
+ * } $args See WP_Term_Query::__construct()
+ * @phpstan-return ($args is array{fields: 'count'}&array ? numeric-string : ($args is array{fields: 'names'|'slugs'}&array ? list<string> : ($args is array{fields: 'id=>name'|'id=>slug'}&array ? array<int, string> : ($args is array{fields: 'id=>parent'}&array ? array<int, int> : ($args is array{fields: 'ids'|'tt_ids'}&array ? list<int> : array<int, \WP_Term>)))))|\WP_Error
+ */
+function get_terms($args = array(), $deprecated = '')
+{
+}
